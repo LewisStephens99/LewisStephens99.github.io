@@ -1,108 +1,1253 @@
-<!DOCTYPE HTML>
-<html>
+<!DOCTYPE html>
+
+<html lang="en">
 <head>
-    <title>Lewis Stephens | 3D & CAD Designer</title>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-    <link rel="stylesheet" href="assets/css/main.css" />
-    <noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lewis Stephens — Engineering Portfolio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Mono:ital,wght@0,300;0,400;0,500;1,300&family=Syne:wght@400;500;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;1,300&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+–bg: #0a0a0b;
+–bg2: #111114;
+–bg3: #18181c;
+–line: rgba(255,255,255,0.08);
+–line-strong: rgba(255,255,255,0.15);
+–text: #e8e6e0;
+–text-muted: #6b6860;
+–text-dim: #3a3835;
+–accent: #c8a96e;
+–accent-dim: rgba(200,169,110,0.15);
+–accent-line: rgba(200,169,110,0.3);
+–red: #c85a3a;
+–mono: ‘DM Mono’, monospace;
+–sans: ‘DM Sans’, sans-serif;
+–display: ‘Syne’, sans-serif;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+background: var(–bg);
+color: var(–text);
+font-family: var(–sans);
+font-size: 16px;
+line-height: 1.6;
+font-weight: 300;
+overflow-x: hidden;
+}
+
+/* ── GRID OVERLAY ── */
+body::before {
+content: ‘’;
+position: fixed;
+inset: 0;
+background-image:
+linear-gradient(var(–line) 1px, transparent 1px),
+linear-gradient(90deg, var(–line) 1px, transparent 1px);
+background-size: 80px 80px;
+pointer-events: none;
+z-index: 0;
+opacity: 0.4;
+}
+
+/* ── NAV ── */
+nav {
+position: fixed;
+top: 0; left: 0; right: 0;
+z-index: 100;
+display: flex;
+align-items: center;
+justify-content: space-between;
+padding: 0 48px;
+height: 64px;
+border-bottom: 1px solid var(–line);
+background: rgba(10,10,11,0.85);
+backdrop-filter: blur(12px);
+}
+
+.nav-mark {
+font-family: var(–mono);
+font-size: 11px;
+font-weight: 500;
+letter-spacing: 0.12em;
+color: var(–accent);
+text-transform: uppercase;
+}
+
+.nav-links {
+display: flex;
+gap: 40px;
+list-style: none;
+}
+
+.nav-links a {
+font-family: var(–mono);
+font-size: 11px;
+letter-spacing: 0.1em;
+color: var(–text-muted);
+text-decoration: none;
+text-transform: uppercase;
+transition: color 0.2s;
+}
+
+.nav-links a:hover { color: var(–text); }
+
+.nav-tag {
+font-family: var(–mono);
+font-size: 10px;
+color: var(–text-dim);
+letter-spacing: 0.08em;
+}
+
+/* ── HERO ── */
+.hero {
+position: relative;
+min-height: 100vh;
+display: flex;
+align-items: flex-end;
+padding: 0 48px 80px;
+z-index: 1;
+}
+
+.hero-corner {
+position: absolute;
+top: 80px; left: 48px;
+font-family: var(–mono);
+font-size: 10px;
+color: var(–text-dim);
+letter-spacing: 0.08em;
+line-height: 2;
+}
+
+.hero-corner span {
+display: block;
+}
+
+.hero-corner .dot {
+display: inline-block;
+width: 6px; height: 6px;
+border-radius: 50%;
+background: var(–accent);
+margin-right: 8px;
+animation: pulse 2s ease-in-out infinite;
+}
+
+@keyframes pulse {
+0%, 100% { opacity: 1; }
+50% { opacity: 0.3; }
+}
+
+.hero-content {
+max-width: 900px;
+}
+
+.hero-label {
+font-family: var(–mono);
+font-size: 11px;
+letter-spacing: 0.15em;
+color: var(–accent);
+text-transform: uppercase;
+margin-bottom: 24px;
+display: flex;
+align-items: center;
+gap: 16px;
+}
+
+.hero-label::before {
+content: ‘’;
+display: block;
+width: 40px;
+height: 1px;
+background: var(–accent);
+}
+
+h1 {
+font-family: var(–display);
+font-size: clamp(56px, 8vw, 120px);
+font-weight: 800;
+line-height: 0.92;
+letter-spacing: -0.03em;
+color: var(–text);
+margin-bottom: 32px;
+}
+
+h1 em {
+font-style: normal;
+color: var(–accent);
+}
+
+.hero-desc {
+font-family: var(–sans);
+font-size: 17px;
+font-weight: 300;
+color: var(–text-muted);
+max-width: 520px;
+line-height: 1.7;
+margin-bottom: 48px;
+}
+
+.hero-pills {
+display: flex;
+gap: 12px;
+flex-wrap: wrap;
+}
+
+.pill {
+font-family: var(–mono);
+font-size: 10px;
+letter-spacing: 0.1em;
+text-transform: uppercase;
+padding: 6px 14px;
+border: 1px solid var(–line-strong);
+color: var(–text-muted);
+border-radius: 2px;
+}
+
+.pill-accent {
+border-color: var(–accent-line);
+color: var(–accent);
+background: var(–accent-dim);
+}
+
+/* ── SCROLL INDICATOR ── */
+.scroll-hint {
+position: absolute;
+right: 48px;
+bottom: 80px;
+font-family: var(–mono);
+font-size: 10px;
+color: var(–text-dim);
+letter-spacing: 0.1em;
+writing-mode: vertical-rl;
+display: flex;
+align-items: center;
+gap: 12px;
+}
+
+.scroll-hint::before {
+content: ‘’;
+display: block;
+width: 1px;
+height: 60px;
+background: linear-gradient(to bottom, transparent, var(–text-dim));
+}
+
+/* ── SECTION STRUCTURE ── */
+section {
+position: relative;
+z-index: 1;
+}
+
+.section-header {
+padding: 80px 48px 48px;
+border-top: 1px solid var(–line);
+display: flex;
+align-items: baseline;
+gap: 24px;
+}
+
+.section-num {
+font-family: var(–mono);
+font-size: 11px;
+color: var(–text-dim);
+letter-spacing: 0.1em;
+}
+
+.section-title {
+font-family: var(–display);
+font-size: clamp(28px, 4vw, 48px);
+font-weight: 700;
+letter-spacing: -0.02em;
+color: var(–text);
+}
+
+.section-rule {
+flex: 1;
+height: 1px;
+background: var(–line);
+margin-left: 24px;
+}
+
+/* ── PROJECT CARDS ── */
+.projects {
+padding: 0 48px 120px;
+}
+
+.project-card {
+border: 1px solid var(–line);
+background: var(–bg2);
+margin-bottom: 2px;
+overflow: hidden;
+transition: border-color 0.3s;
+}
+
+.project-card:hover {
+border-color: var(–line-strong);
+}
+
+.project-header {
+padding: 40px 48px;
+display: grid;
+grid-template-columns: 1fr auto;
+gap: 24px;
+align-items: start;
+cursor: pointer;
+position: relative;
+}
+
+.project-header::after {
+content: ‘’;
+position: absolute;
+left: 0; bottom: 0;
+width: 0; height: 1px;
+background: var(–accent);
+transition: width 0.4s ease;
+}
+
+.project-card.open .project-header::after,
+.project-card:hover .project-header::after {
+width: 100%;
+}
+
+.project-client {
+font-family: var(–mono);
+font-size: 10px;
+letter-spacing: 0.12em;
+color: var(–accent);
+text-transform: uppercase;
+margin-bottom: 8px;
+}
+
+.project-name {
+font-family: var(–display);
+font-size: clamp(22px, 3vw, 36px);
+font-weight: 700;
+letter-spacing: -0.02em;
+color: var(–text);
+margin-bottom: 12px;
+}
+
+.project-scope {
+font-family: var(–mono);
+font-size: 11px;
+color: var(–text-muted);
+letter-spacing: 0.06em;
+}
+
+.project-meta {
+text-align: right;
+}
+
+.project-meta-item {
+font-family: var(–mono);
+font-size: 10px;
+color: var(–text-dim);
+letter-spacing: 0.08em;
+line-height: 2;
+text-transform: uppercase;
+}
+
+.project-meta-item strong {
+color: var(–text-muted);
+font-weight: 500;
+}
+
+.project-toggle {
+display: flex;
+align-items: center;
+gap: 8px;
+font-family: var(–mono);
+font-size: 10px;
+color: var(–text-dim);
+letter-spacing: 0.1em;
+margin-top: 16px;
+text-transform: uppercase;
+}
+
+.toggle-icon {
+width: 20px; height: 20px;
+border: 1px solid var(–line-strong);
+display: flex; align-items: center; justify-content: center;
+font-size: 14px;
+transition: transform 0.3s, border-color 0.3s;
+color: var(–text-muted);
+flex-shrink: 0;
+}
+
+.project-card.open .toggle-icon {
+transform: rotate(45deg);
+border-color: var(–accent-line);
+color: var(–accent);
+}
+
+/* ── PROJECT BODY ── */
+.project-body {
+display: none;
+border-top: 1px solid var(–line);
+}
+
+.project-card.open .project-body {
+display: block;
+}
+
+.project-body-inner {
+padding: 48px;
+display: grid;
+grid-template-columns: 1fr 1fr;
+gap: 48px;
+}
+
+@media (max-width: 900px) {
+.project-body-inner { grid-template-columns: 1fr; }
+}
+
+.body-section-label {
+font-family: var(–mono);
+font-size: 10px;
+letter-spacing: 0.12em;
+color: var(–accent);
+text-transform: uppercase;
+margin-bottom: 16px;
+display: flex;
+align-items: center;
+gap: 12px;
+}
+
+.body-section-label::after {
+content: ‘’;
+flex: 1;
+height: 1px;
+background: var(–accent-line);
+}
+
+.body-text {
+font-size: 15px;
+font-weight: 300;
+color: var(–text-muted);
+line-height: 1.75;
+margin-bottom: 24px;
+}
+
+.body-text strong {
+color: var(–text);
+font-weight: 400;
+}
+
+/* ── TECH LIST ── */
+.tech-list {
+list-style: none;
+display: flex;
+flex-direction: column;
+gap: 8px;
+}
+
+.tech-list li {
+font-family: var(–mono);
+font-size: 12px;
+color: var(–text-muted);
+padding: 10px 14px;
+border: 1px solid var(–line);
+background: var(–bg3);
+display: flex;
+align-items: center;
+gap: 10px;
+letter-spacing: 0.04em;
+}
+
+.tech-list li::before {
+content: ‘—’;
+color: var(–accent);
+flex-shrink: 0;
+}
+
+/* ── CODE BLOCK ── */
+.code-wrap {
+grid-column: 1 / -1;
+border: 1px solid var(–line);
+background: var(–bg);
+overflow: hidden;
+}
+
+.code-header {
+padding: 12px 20px;
+border-bottom: 1px solid var(–line);
+display: flex;
+align-items: center;
+justify-content: space-between;
+}
+
+.code-filename {
+font-family: var(–mono);
+font-size: 11px;
+color: var(–text-muted);
+letter-spacing: 0.06em;
+}
+
+.code-lang {
+font-family: var(–mono);
+font-size: 10px;
+color: var(–accent);
+letter-spacing: 0.1em;
+text-transform: uppercase;
+background: var(–accent-dim);
+padding: 2px 8px;
+border: 1px solid var(–accent-line);
+}
+
+.code-dots {
+display: flex;
+gap: 6px;
+margin-right: 12px;
+}
+
+.code-dot {
+width: 10px; height: 10px;
+border-radius: 50%;
+background: var(–line-strong);
+}
+
+pre {
+padding: 24px;
+overflow-x: auto;
+font-family: var(–mono);
+font-size: 12px;
+line-height: 1.8;
+color: var(–text-muted);
+max-height: 400px;
+overflow-y: auto;
+}
+
+pre .kw { color: #9b8ec4; }
+pre .fn { color: #7ab8d4; }
+pre .str { color: #8cb87a; }
+pre .cm { color: #4a4845; font-style: italic; }
+pre .num { color: var(–accent); }
+pre .pp { color: var(–red); }
+
+/* ── DELIVERABLES ── */
+.deliverables {
+grid-column: 1 / -1;
+display: flex;
+gap: 2px;
+flex-wrap: wrap;
+}
+
+.deliverable-tag {
+font-family: var(–mono);
+font-size: 10px;
+letter-spacing: 0.08em;
+text-transform: uppercase;
+padding: 8px 16px;
+border: 1px solid var(–line-strong);
+color: var(–text-muted);
+background: var(–bg3);
+}
+
+.deliverable-tag.highlight {
+border-color: var(–accent-line);
+color: var(–accent);
+background: var(–accent-dim);
+}
+
+/* ── DEPLOYMENT STRIP ── */
+.deployment-strip {
+grid-column: 1 / -1;
+border: 1px solid var(–accent-line);
+background: var(–accent-dim);
+padding: 20px 24px;
+display: flex;
+align-items: center;
+gap: 24px;
+}
+
+.deployment-strip .ds-label {
+font-family: var(–mono);
+font-size: 10px;
+color: var(–accent);
+letter-spacing: 0.12em;
+text-transform: uppercase;
+flex-shrink: 0;
+}
+
+.deployment-strip .ds-value {
+font-family: var(–mono);
+font-size: 13px;
+color: var(–text);
+letter-spacing: 0.04em;
+}
+
+/* ── ABOUT SECTION ── */
+.about-grid {
+padding: 0 48px 120px;
+display: grid;
+grid-template-columns: 1fr 1fr;
+gap: 2px;
+}
+
+@media (max-width: 900px) {
+.about-grid { grid-template-columns: 1fr; }
+}
+
+.about-block {
+background: var(–bg2);
+border: 1px solid var(–line);
+padding: 40px;
+}
+
+.about-block-label {
+font-family: var(–mono);
+font-size: 10px;
+letter-spacing: 0.12em;
+color: var(–text-dim);
+text-transform: uppercase;
+margin-bottom: 20px;
+}
+
+.about-block-value {
+font-family: var(–display);
+font-size: 22px;
+font-weight: 700;
+color: var(–text);
+margin-bottom: 8px;
+letter-spacing: -0.01em;
+}
+
+.about-block-sub {
+font-size: 14px;
+font-weight: 300;
+color: var(–text-muted);
+line-height: 1.6;
+}
+
+.skills-wrap {
+grid-column: 1 / -1;
+background: var(–bg2);
+border: 1px solid var(–line);
+padding: 40px;
+}
+
+.skills-grid {
+display: grid;
+grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+gap: 2px;
+margin-top: 20px;
+}
+
+.skill-item {
+background: var(–bg3);
+border: 1px solid var(–line);
+padding: 14px 16px;
+font-family: var(–mono);
+font-size: 11px;
+color: var(–text-muted);
+letter-spacing: 0.06em;
+display: flex;
+align-items: center;
+gap: 8px;
+}
+
+.skill-item::before {
+content: ‘’;
+width: 4px; height: 4px;
+background: var(–accent);
+border-radius: 50%;
+flex-shrink: 0;
+}
+
+/* ── CONTACT ── */
+.contact-section {
+padding: 0 48px 120px;
+}
+
+.contact-inner {
+border: 1px solid var(–line);
+background: var(–bg2);
+padding: 64px;
+display: flex;
+align-items: center;
+justify-content: space-between;
+gap: 48px;
+}
+
+@media (max-width: 700px) {
+.contact-inner { flex-direction: column; align-items: flex-start; }
+}
+
+.contact-text h2 {
+font-family: var(–display);
+font-size: clamp(28px, 4vw, 48px);
+font-weight: 700;
+letter-spacing: -0.02em;
+margin-bottom: 12px;
+}
+
+.contact-text p {
+font-size: 15px;
+font-weight: 300;
+color: var(–text-muted);
+max-width: 400px;
+}
+
+.contact-links {
+display: flex;
+flex-direction: column;
+gap: 12px;
+flex-shrink: 0;
+}
+
+.contact-link {
+display: flex;
+align-items: center;
+gap: 16px;
+font-family: var(–mono);
+font-size: 12px;
+color: var(–text-muted);
+text-decoration: none;
+letter-spacing: 0.06em;
+padding: 14px 20px;
+border: 1px solid var(–line);
+background: var(–bg3);
+transition: border-color 0.2s, color 0.2s;
+}
+
+.contact-link:hover {
+border-color: var(–accent-line);
+color: var(–accent);
+}
+
+.contact-link-icon {
+font-size: 16px;
+flex-shrink: 0;
+}
+
+/* ── FOOTER ── */
+footer {
+border-top: 1px solid var(–line);
+padding: 32px 48px;
+display: flex;
+justify-content: space-between;
+align-items: center;
+position: relative;
+z-index: 1;
+}
+
+footer .ft-left {
+font-family: var(–mono);
+font-size: 10px;
+color: var(–text-dim);
+letter-spacing: 0.08em;
+}
+
+footer .ft-right {
+font-family: var(–mono);
+font-size: 10px;
+color: var(–text-dim);
+letter-spacing: 0.08em;
+}
+
+/* ── DRAWING ACCENT LINE ── */
+.dim-line {
+position: absolute;
+background: var(–accent-line);
+}
+
+/* ── FADE IN ── */
+.fade-in {
+opacity: 0;
+transform: translateY(20px);
+transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.fade-in.visible {
+opacity: 1;
+transform: translateY(0);
+}
+
+/* ── RESPONSIVE ── */
+@media (max-width: 700px) {
+nav { padding: 0 24px; }
+.nav-links { display: none; }
+.hero { padding: 0 24px 64px; }
+.hero-corner { left: 24px; }
+.scroll-hint { right: 24px; }
+.section-header { padding: 60px 24px 32px; }
+.projects { padding: 0 24px 80px; }
+.project-header { padding: 28px 24px; }
+.project-body-inner { padding: 28px 24px; }
+.about-grid { padding: 0 24px 80px; }
+.contact-section { padding: 0 24px 80px; }
+.contact-inner { padding: 40px 28px; }
+footer { padding: 24px; flex-direction: column; gap: 8px; text-align: center; }
+}
+</style>
+
 </head>
-<body class="is-preload">
+<body>
 
-<div id="wrapper">
+<!-- NAV -->
 
-<header id="header" class="alt">
-    <span class="logo"><img src="images/PersonalPic.jpg" alt="" /></span>
-    <h1>Lewis Stephens</h1>
-    <p>3D & CAD Designer<br/>Exhibition • Product • Physical Design</p>
-</header>
-
-<nav id="nav">
-    <ul>
-        <li><a href="#intro" class="active">Profile</a></li>
-        <li><a href="#work">Selected Work</a></li>
-        <li><a href="#contact">Contact</a></li>
-    </ul>
+<nav>
+  <span class="nav-mark">Lewis Stephens</span>
+  <ul class="nav-links">
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <span class="nav-tag">SW & CAD Design Engineer</span>
 </nav>
 
-<div id="main">
+<!-- HERO -->
 
-<section id="intro" class="main special">
-    <header class="major">
-        <h2>Profile</h2>
-    </header>
-    <p>
-        3D & CAD Designer with over 5 years’ experience designing physical products, 
-        exhibition elements, and display environments. Highly proficient in Autodesk 
-        Fusion 360 and Blender, with hands-on experience across CNC manufacturing, 
-        3D printing, and installation-ready technical documentation.
+<div class="hero">
+  <div class="hero-corner">
+    <span><span class="dot"></span>Derby, UK</span>
+    <span style="margin-left:14px">BSc Software Engineering · NTU 2020</span>
+    <span style="margin-left:14px">5 Years Industry Experience</span>
+  </div>
+
+  <div class="hero-content">
+    <div class="hero-label">Engineering Portfolio</div>
+    <h1>Software<br>&amp; <em>CAD</em><br>Design</h1>
+    <p class="hero-desc">
+      Multi-discipline engineer combining software systems, CAD design, and hands-on fabrication. From embedded electronics at Selfridges to proprietary component families deployed across Europe.
     </p>
-</section>
+    <div class="hero-pills">
+      <span class="pill pill-accent">Siemens NX</span>
+      <span class="pill pill-accent">Fusion 360</span>
+      <span class="pill pill-accent">Arduino / Raspberry Pi</span>
+      <span class="pill pill-accent">Python</span>
+      <span class="pill">CNC Programming</span>
+      <span class="pill">DFM / DFMA</span>
+      <span class="pill">GD&T</span>
+      <span class="pill">Tolerance Engineering</span>
+    </div>
+  </div>
 
-<section id="work" class="main special">
-    <header class="major">
-        <h2>Selected Work</h2>
-    </header>
-    <ul class="features">
-        <li>
-            <span class="icon solid major style1 fa-cubes"></span>
-            <h3>Exhibition & Display Design</h3>
-            <p>
-                Designed exhibition pop-ups and window display elements from concept 
-                through to manufacture, producing CAD models and technical drawings 
-                for fabrication and installation.
-            </p>
-        </li>
-        <li>
-            <span class="icon solid major style3 fa-industry"></span>
-            <h3>CNC & Fabrication</h3>
-            <p>
-                Programmed and operated 3-axis CNC routers, translating digital designs 
-                into physical outputs while balancing visual impact and build feasibility.
-            </p>
-        </li>
-        <li>
-            <span class="icon solid major style5 fa-tools"></span>
-            <h3>Product Design & Prototyping</h3>
-            <p>
-                Founded and led a design-led motorsport simulation business, taking 
-                products from CAD and 3D-printed prototypes through iterative testing 
-                to production-ready outcomes.
-            </p>
-        </li>
-    </ul>
-</section>
-
-<section id="contact" class="main special">
-    <header class="major">
-        <h2>Contact</h2>
-    </header>
-    <dl class="alt">
-        <dt>Phone</dt>
-        <dd>07450 551126</dd>
-        <dt>Email</dt>
-        <dd><a href="mailto:lewis.stephens1999@gmail.com">lewis.stephens1999@gmail.com</a></dd>
-        <dt>Links</dt>
-        <dd>
-            <ul class="icons">
-                <li><a href="https://github.com/LewisStephens99" class="icon brands fa-github alt"><span class="label">GitHub</span></a></li>
-                <li><a href="https://www.linkedin.com/in/lewis-stephens-9343b71b3/" class="icon brands fa-linkedin alt"><span class="label">LinkedIn</span></a></li>
-            </ul>
-        </dd>
-    </dl>
-</section>
-
+  <div class="scroll-hint">Scroll to projects</div>
 </div>
 
+<!-- PROJECTS -->
+
+<section id="projects">
+  <div class="section-header fade-in">
+    <span class="section-num">01</span>
+    <h2 class="section-title">Selected Projects</h2>
+    <div class="section-rule"></div>
+  </div>
+
+  <div class="projects">
+
+```
+<!-- STONE ISLAND -->
+<div class="project-card fade-in" id="card-si">
+  <div class="project-header" onclick="toggleCard('card-si')">
+    <div>
+      <div class="project-client">Client — Stone Island · Selfridges Oxford Street</div>
+      <div class="project-name">Marina Window Installation</div>
+      <div class="project-scope">Structural Design · Embedded Electronics · On-site Commissioning</div>
+    </div>
+    <div class="project-meta">
+      <div class="project-meta-item"><strong>Location</strong><br>London, UK</div>
+      <div class="project-meta-item" style="margin-top:8px"><strong>Year</strong><br>2025</div>
+      <div class="project-toggle">
+        <span class="toggle-icon">+</span>
+        <span>View project</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="project-body">
+    <div class="project-body-inner">
+
+      <!-- Brief -->
+      <div>
+        <div class="body-section-label">Brief</div>
+        <p class="body-text">
+          Design and deliver two <strong>flagship window installations</strong> for Selfridges Oxford Street capturing the Marina collection's sailing theme — one window featuring synchronised CGI media screens, the other a dynamic fan-driven sail effect.
+        </p>
+        <p class="body-text">
+          All electronics to be delivered <strong>in-house</strong>, eliminating the need for external AV contractors. Installation environment was constrained — no welding permitted on site.
+        </p>
+      </div>
+
+      <!-- Engineering Approach -->
+      <div>
+        <div class="body-section-label">Engineering Approach</div>
+        <ul class="tech-list">
+          <li>Designed 40×40mm powder-coated aluminium L-angle framework with CNC-machined hole pattern at 50mm spacing</li>
+          <li>Designed custom fan mounting brackets and structural corner brackets — fully dimensioned for in-house manufacture</li>
+          <li>Specified M8 flanged fastener positions for tool-free on-site assembly</li>
+          <li>FR clear coat specified on all plywood elements — public retail fire compliance</li>
+          <li>6× 240V industrial fans controlled via Arduino 8-channel relay — relay selected to isolate signal voltage from mains load</li>
+          <li>Raspberry Pi media units with staggered startup sequences via grep boot commands — synchronised CGI playback across all screens</li>
+          <li>All power cabling routed through floor panels and concealed for aesthetic cleanliness</li>
+        </ul>
+      </div>
+
+      <!-- Arduino Code -->
+      <div class="code-wrap">
+        <div class="code-header">
+          <div style="display:flex;align-items:center;gap:12px">
+            <div class="code-dots">
+              <div class="code-dot"></div>
+              <div class="code-dot"></div>
+              <div class="code-dot"></div>
+            </div>
+            <span class="code-filename">fan_relay_control.ino</span>
+          </div>
+          <span class="code-lang">Arduino C++</span>
+        </div>
+```
+
+<pre><span class="pp">#include</span> <span class="str">&lt;multi_channel_relay.h&gt;</span>
+
+<span class="cm">/** Channel layout:
+ *  Set 1: Fans 1, 2, 3
+ *  Set 2: Fans 4, 5, 6
+ *  Sequential activation creates sail wave effect
+ */</span>
+
+<span class="kw">#define</span> DEBUG_PRINT Serial
+Multi_Channel_Relay relay;
+
+<span class="kw">void</span> <span class="fn">setup</span>() {
+  DEBUG_PRINT.<span class="fn">begin</span>(<span class="num">9600</span>);
+  <span class="kw">while</span> (!DEBUG_PRINT);
+  relay.<span class="fn">begin</span>(<span class="num">0x11</span>);
+  DEBUG_PRINT.<span class="fn">println</span>(<span class="str">"Relay control initialized."</span>);
+  <span class="fn">randomSeed</span>(<span class="fn">analogRead</span>(A0));
+}
+
+<span class="kw">void</span> <span class="fn">loop</span>() {
+  DEBUG_PRINT.<span class="fn">println</span>(<span class="str">"Starting both fan sets in parallel..."</span>);
+
+  <span class="cm">// Activate both sets simultaneously, one fan at a time</span>
+  <span class="kw">for</span> (<span class="kw">int</span> i = <span class="num">0</span>; i &lt; <span class="num">3</span>; i++) {
+    <span class="kw">int</span> fanSet1 = i + <span class="num">1</span>;   <span class="cm">// Fans 1, 2, 3</span>
+    <span class="kw">int</span> fanSet2 = i + <span class="num">4</span>;   <span class="cm">// Fans 4, 5, 6</span>
+
+    relay.<span class="fn">turn_on_channel</span>(fanSet1);
+    relay.<span class="fn">turn_on_channel</span>(fanSet2);
+
+    <span class="fn">delay</span>(<span class="num">5000</span>);  <span class="cm">// 5s between activation steps</span>
+  }
+
+  <span class="fn">delay</span>(<span class="num">5000</span>);  <span class="cm">// Hold all fans on</span>
+
+  <span class="cm">// Sequential shutdown</span>
+  <span class="kw">for</span> (<span class="kw">int</span> i = <span class="num">0</span>; i &lt; <span class="num">3</span>; i++) {
+    <span class="kw">int</span> fanSet1 = i + <span class="num">1</span>;
+    <span class="kw">int</span> fanSet2 = i + <span class="num">4</span>;
+
+    relay.<span class="fn">turn_off_channel</span>(fanSet1);
+    relay.<span class="fn">turn_off_channel</span>(fanSet2);
+
+    <span class="fn">delay</span>(<span class="num">5000</span>);
+  }
+
+  <span class="fn">delay</span>(<span class="num">5000</span>);  <span class="cm">// Wait before cycle repeats</span>
+}</pre>
+
+```
+      </div>
+
+      <!-- Deployment -->
+      <div class="deployment-strip">
+        <span class="ds-label">Installed</span>
+        <span class="ds-value">Two flagship windows · Selfridges Oxford Street · London</span>
+      </div>
+
+      <!-- Deliverables -->
+      <div class="deliverables">
+        <span class="deliverable-tag highlight">Structural CAD</span>
+        <span class="deliverable-tag highlight">Custom Component Drawings</span>
+        <span class="deliverable-tag highlight">Arduino Firmware</span>
+        <span class="deliverable-tag highlight">RPi Deployment</span>
+        <span class="deliverable-tag">Technical Documentation</span>
+        <span class="deliverable-tag">On-site Commissioning</span>
+        <span class="deliverable-tag">Fire Compliance Spec</span>
+      </div>
+
+    </div>
+  </div>
 </div>
 
-<script src="assets/js/jquery.min.js"></script>
-<script src="assets/js/jquery.scrollex.min.js"></script>
-<script src="assets/js/jquery.scrolly.min.js"></script>
-<script src="assets/js/browser.min.js"></script>
-<script src="assets/js/breakpoints.min.js"></script>
-<script src="assets/js/util.js"></script>
-<script src="assets/js/main.js"></script>
+<!-- DR MARTENS -->
+<div class="project-card fade-in" id="card-dm">
+  <div class="project-header" onclick="toggleCard('card-dm')">
+    <div>
+      <div class="project-client">Client — Dr Martens · European Retail</div>
+      <div class="project-name">Modular Display System</div>
+      <div class="project-scope">Component Design · Tolerance Engineering · European Deployment</div>
+    </div>
+    <div class="project-meta">
+      <div class="project-meta-item"><strong>Territories</strong><br>UK · NL · DE · IT · FR</div>
+      <div class="project-meta-item" style="margin-top:8px"><strong>Stores</strong><br>11 locations</div>
+      <div class="project-toggle">
+        <span class="toggle-icon">+</span>
+        <span>View project</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="project-body">
+    <div class="project-body-inner">
+
+      <!-- Brief -->
+      <div>
+        <div class="body-section-label">Brief</div>
+        <p class="body-text">
+          Design a flexible modular display system deployable across <strong>three campaigns and 11 store formats</strong> across Europe. In the client's brief: <em>"considered, curated and clever."</em>
+        </p>
+        <p class="body-text">
+          The system needed to accommodate shoes, boots, bags, clothing and LED elements — and be <strong>installed independently by non-technical store teams</strong> across five countries with no engineering support on site.
+        </p>
+      </div>
+
+      <!-- Engineering Approach -->
+      <div>
+        <div class="body-section-label">Engineering Approach</div>
+        <ul class="tech-list">
+          <li>Designed proprietary family of 13 CNC-machined aluminium components from scratch</li>
+          <li>4-way clamping connector with 0.2mm interference fit on 15.88mm aluminium round bar</li>
+          <li>Pivot connector with 120° rotation limit and 1.5mm rubber damping washer</li>
+          <li>Height-adjustable tube attachments for light bars, plates and bag straps</li>
+          <li>Tolerances validated through iterative FDM prototyping with shrinkage compensation before CNC release</li>
+          <li>Integrated 24V COB LED lighting system — 11.2Wp/m, IP20, 4000K colour temperature</li>
+          <li>3D printed transparent PETG snap-fit cable clips for clean wire management on verticals</li>
+          <li>Banner retention system using 4mm steel cable crimps and machined aluminium weights</li>
+        </ul>
+      </div>
+
+      <!-- System Spec -->
+      <div>
+        <div class="body-section-label">System Specification</div>
+        <ul class="tech-list">
+          <li>15.88mm aluminium round bar — 4 lengths: 150, 300, 600, 1200mm</li>
+          <li>2 bar types: slotted base bars and threaded vertical bars</li>
+          <li>13 unique machined components — all fully dimensioned for manufacture</li>
+          <li>M6 fastener system throughout — Allen key torqued to 10Nm</li>
+          <li>5mm aluminium L-plate and flat plate shelf attachments</li>
+          <li>100W 24V LED driver specified and documented</li>
+        </ul>
+      </div>
+
+      <!-- Documentation -->
+      <div>
+        <div class="body-section-label">Documentation</div>
+        <p class="body-text">
+          Produced a <strong>visual step-by-step assembly instruction pack</strong> in Adobe Illustrator using CAD-derived artwork — structured as an IKEA-style guide enabling tool-independent installation by store teams across different countries and languages.
+        </p>
+        <p class="body-text">
+          Full manufacturing drawing package produced for each of the 13 components, including tolerances, material specs, and finish requirements.
+        </p>
+      </div>
+
+      <!-- Deployment -->
+      <div class="deployment-strip">
+        <span class="ds-label">Deployed</span>
+        <span class="ds-value">11 stores · UK, Netherlands, Germany, Italy, France</span>
+      </div>
+
+      <!-- Deliverables -->
+      <div class="deliverables">
+        <span class="deliverable-tag highlight">13-Part Component Family</span>
+        <span class="deliverable-tag highlight">Manufacturing Drawings</span>
+        <span class="deliverable-tag highlight">Tolerance Documentation</span>
+        <span class="deliverable-tag highlight">LED System Integration</span>
+        <span class="deliverable-tag">European Assembly Guide</span>
+        <span class="deliverable-tag">FDM Prototype Validation</span>
+        <span class="deliverable-tag">Sole Designer</span>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- PODIUM SIM RACING -->
+<div class="project-card fade-in" id="card-podium">
+  <div class="project-header" onclick="toggleCard('card-podium')">
+    <div>
+      <div class="project-client">Venture — Podium Sim Racing Ltd · Founded & Directed</div>
+      <div class="project-name">Hardware Product Range</div>
+      <div class="project-scope">Product Design · Manufacturing · Full Lifecycle Management</div>
+    </div>
+    <div class="project-meta">
+      <div class="project-meta-item"><strong>Duration</strong><br>4 Years</div>
+      <div class="project-meta-item" style="margin-top:8px"><strong>SKUs</strong><br>10 products</div>
+      <div class="project-toggle">
+        <span class="toggle-icon">+</span>
+        <span>View project</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="project-body">
+    <div class="project-body-inner">
+
+      <div>
+        <div class="body-section-label">Overview</div>
+        <p class="body-text">
+          Founded and independently operated an engineering product business, taking a <strong>full hardware range of 10 SKUs from concept through to manufactured output</strong> — managing design, prototyping, manufacturing, quality control, and customer delivery as sole engineer and director.
+        </p>
+        <p class="body-text">
+          Ran a concurrent venture producing <strong>aftermarket lighting components for Sherco and Beta motorcycles</strong> — involving 3D scanning of original components, surface modelling, and hands-on electronics wiring.
+        </p>
+      </div>
+
+      <div>
+        <div class="body-section-label">Capabilities Demonstrated</div>
+        <ul class="tech-list">
+          <li>Designed all products in Fusion 360 using iterative design principles</li>
+          <li>Rapid prototyping via 3D printing to validate form, fit and function</li>
+          <li>3D scanning of original motorcycle components for surface model derivation</li>
+          <li>Hands-on electronics wiring and component sourcing</li>
+          <li>Complete technical documentation packages for each product</li>
+          <li>Managed full commercial operation under real market deadlines</li>
+          <li>Python-based investment tracking system built alongside — API integrations, hosted on GitHub</li>
+        </ul>
+      </div>
+
+      <div class="deliverables">
+        <span class="deliverable-tag highlight">10 SKUs to Market</span>
+        <span class="deliverable-tag highlight">Full Product Lifecycle</span>
+        <span class="deliverable-tag">3D Scanning & Surface Modelling</span>
+        <span class="deliverable-tag">Electronics Integration</span>
+        <span class="deliverable-tag">Technical Documentation</span>
+        <span class="deliverable-tag">Python / API Development</span>
+      </div>
+
+    </div>
+  </div>
+</div>
+```
+
+  </div>
+</section>
+
+<!-- ABOUT -->
+
+<section id="about">
+  <div class="section-header fade-in">
+    <span class="section-num">02</span>
+    <h2 class="section-title">About</h2>
+    <div class="section-rule"></div>
+  </div>
+
+  <div class="about-grid">
+
+```
+<div class="about-block fade-in">
+  <div class="about-block-label">Education</div>
+  <div class="about-block-value">BSc (Hons) Software Engineering</div>
+  <div class="about-block-sub">Nottingham Trent University · 2020 · 2:1<br>Foundation in Python, C++, algorithms, systems design and software architecture.</div>
+</div>
+
+<div class="about-block fade-in">
+  <div class="about-block-label">Current Role</div>
+  <div class="about-block-value">CAD Design Engineer</div>
+  <div class="about-block-sub">Formd Creative Ltd · Midlands<br>Design and manufacture of bespoke commercial installations for global brands across UK and Europe.</div>
+</div>
+
+<div class="about-block fade-in">
+  <div class="about-block-label">Certifications</div>
+  <div class="about-block-value">ALPHACAM Certified</div>
+  <div class="about-block-sub">Standard Geometry · Standard Machining<br><br>Siemens NX Engineering Essentials — Coursera / Siemens (In Progress, 2026)</div>
+</div>
+
+<div class="about-block fade-in">
+  <div class="about-block-label">Direction</div>
+  <div class="about-block-value">Digital Engineering</div>
+  <div class="about-block-sub">Targeting aerospace and nuclear engineering — specifically the intersection of software systems and physical design. Active interest in MBSE, Digital Twin, and CAD/PLM environments.</div>
+</div>
+
+<div class="skills-wrap fade-in">
+  <div class="about-block-label">Skills & Software</div>
+  <div class="skills-grid">
+    <div class="skill-item">Autodesk Fusion 360</div>
+    <div class="skill-item">Siemens NX</div>
+    <div class="skill-item">ALPHACAM</div>
+    <div class="skill-item">Adobe Illustrator</div>
+    <div class="skill-item">Python</div>
+    <div class="skill-item">C++</div>
+    <div class="skill-item">Arduino / Embedded C</div>
+    <div class="skill-item">Git / GitHub</div>
+    <div class="skill-item">CNC Programming</div>
+    <div class="skill-item">3D Printing / FDM</div>
+    <div class="skill-item">GD&T</div>
+    <div class="skill-item">DFM / DFMA</div>
+    <div class="skill-item">Tolerance Stack-up</div>
+    <div class="skill-item">Technical Documentation</div>
+    <div class="skill-item">Raspberry Pi</div>
+    <div class="skill-item">Surface Modelling</div>
+  </div>
+</div>
+```
+
+  </div>
+</section>
+
+<!-- CONTACT -->
+
+<section id="contact">
+  <div class="section-header fade-in">
+    <span class="section-num">03</span>
+    <h2 class="section-title">Contact</h2>
+    <div class="section-rule"></div>
+  </div>
+
+  <div class="contact-section">
+    <div class="contact-inner fade-in">
+      <div class="contact-text">
+        <h2>Get in touch</h2>
+        <p>Open to engineering roles in aerospace, nuclear, and digital engineering. Based in Derby, UK.</p>
+      </div>
+      <div class="contact-links">
+        <a href="mailto:lewis.stephens1999@gmail.com" class="contact-link">
+          <span class="contact-link-icon">✉</span>
+          lewis.stephens1999@gmail.com
+        </a>
+        <a href="https://www.linkedin.com/in/lewis-stephens-9343b71b3/" target="_blank" class="contact-link">
+          <span class="contact-link-icon">in</span>
+          LinkedIn Profile
+        </a>
+        <a href="https://github.com/LewisStephens99" target="_blank" class="contact-link">
+          <span class="contact-link-icon">⌥</span>
+          GitHub — LewisStephens99
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+
+<footer>
+  <span class="ft-left">Lewis Stephens · Engineering Portfolio · 2025</span>
+  <span class="ft-right">SW & CAD Design Engineer · Derby, UK</span>
+</footer>
+
+<script>
+  function toggleCard(id) {
+    const card = document.getElementById(id);
+    card.classList.toggle('open');
+  }
+
+  // Fade in on scroll
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+      }
+    });
+  }, { threshold: 0.1 });
+
+  document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+</script>
 
 </body>
 </html>
