@@ -579,6 +579,122 @@
     letter-spacing: 0.04em;
   }
 
+  /* ── IMAGE GALLERY ── */
+  .img-gallery {
+    grid-column: 1 / -1;
+  }
+
+  .gallery-hero {
+    width: 100%;
+    aspect-ratio: 16/9;
+    object-fit: cover;
+    display: block;
+    border: 1px solid var(--line);
+    margin-bottom: 2px;
+    cursor: pointer;
+    transition: opacity 0.2s;
+  }
+
+  .gallery-hero:hover { opacity: 0.9; }
+
+  .gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2px;
+    margin-bottom: 2px;
+  }
+
+  .gallery-grid img {
+    width: 100%;
+    aspect-ratio: 1;
+    object-fit: cover;
+    display: block;
+    border: 1px solid var(--line);
+    cursor: pointer;
+    transition: opacity 0.2s, border-color 0.2s;
+    filter: grayscale(20%);
+  }
+
+  .gallery-grid img:hover {
+    opacity: 0.85;
+    border-color: var(--accent-line);
+    filter: grayscale(0%);
+  }
+
+  .gallery-caption {
+    font-family: var(--mono);
+    font-size: 10px;
+    color: var(--text-dim);
+    letter-spacing: 0.08em;
+    padding: 8px 0;
+    text-align: center;
+  }
+
+  /* ── PROCESS STRIP ── */
+  .process-strip {
+    grid-column: 1 / -1;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2px;
+  }
+
+  .process-item {
+    border: 1px solid var(--line);
+    background: var(--bg3);
+    overflow: hidden;
+  }
+
+  .process-item img {
+    width: 100%;
+    aspect-ratio: 4/3;
+    object-fit: cover;
+    display: block;
+    filter: grayscale(20%);
+    transition: filter 0.3s;
+  }
+
+  .process-item:hover img { filter: grayscale(0%); }
+
+  .process-item-label {
+    padding: 10px 14px;
+    font-family: var(--mono);
+    font-size: 10px;
+    color: var(--text-muted);
+    letter-spacing: 0.08em;
+    border-top: 1px solid var(--line);
+  }
+
+  /* ── LIGHTBOX ── */
+  .lightbox {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.92);
+    z-index: 1000;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+  }
+
+  .lightbox.active { display: flex; }
+
+  .lightbox img {
+    max-width: 90vw;
+    max-height: 90vh;
+    object-fit: contain;
+    border: 1px solid var(--line-strong);
+  }
+
+  .lightbox-close {
+    position: absolute;
+    top: 24px; right: 24px;
+    font-family: var(--mono);
+    font-size: 12px;
+    color: var(--text-muted);
+    letter-spacing: 0.1em;
+    cursor: pointer;
+  }
+
   /* ── ABOUT SECTION ── */
   .about-grid {
     padding: 0 48px 120px;
@@ -945,6 +1061,54 @@ Multi_Channel_Relay relay;
 }</pre>
           </div>
 
+          <!-- Final Installation Gallery -->
+          <div class="img-gallery">
+            <div class="body-section-label">Final Installation — Selfridges Oxford Street</div>
+            <img class="gallery-hero" src="images/si-installed.jpg" alt="Stone Island Marina — both windows installed at Selfridges Oxford Street" onclick="openLightbox(this.src)">
+            <div class="gallery-caption">Window 10 (screens) and Window 11 (fan/sail) — Selfridges Oxford Street, London · March 2025</div>
+          </div>
+
+          <!-- Fabrication Process -->
+          <div class="process-strip">
+            <div class="process-item">
+              <img src="images/si-framework.jpg" alt="Aluminium framework pre-paint" onclick="openLightbox(this.src)">
+              <div class="process-item-label">Aluminium framework — pre-paint</div>
+            </div>
+            <div class="process-item">
+              <img src="images/si-pi-bench.jpg" alt="Raspberry Pi units being configured" onclick="openLightbox(this.src)">
+              <div class="process-item-label">10× Raspberry Pi units — bench configuration</div>
+            </div>
+            <div class="process-item">
+              <img src="images/si-pi-setup.jpg" alt="Pi and screen testing" onclick="openLightbox(this.src)">
+              <div class="process-item-label">Screen and Pi integration testing</div>
+            </div>
+          </div>
+
+          <!-- Electronics Detail -->
+          <div>
+            <div class="body-section-label">Electronics — Component Detail</div>
+            <div class="gallery-grid">
+              <img src="images/si-lcd-board.jpg" alt="10.1 inch LCD panel with driver board" onclick="openLightbox(this.src)" title="10.1″ LG LCD panel with LVDS driver board">
+              <img src="images/si-cad-enclosure.jpg" alt="CAD render of acrylic Pi enclosure" onclick="openLightbox(this.src)" title="5mm acrylic enclosure — CAD render">
+              <img src="images/si-script-1.jpg" alt="Shell script in Geany on Raspberry Pi" onclick="openLightbox(this.src)" title="Autostart shell script — Geany editor on RPi">
+              <img src="images/si-script-2.jpg" alt="VLC autostart script" onclick="openLightbox(this.src)" title="VLC loop script with staggered boot delay">
+            </div>
+            <div class="gallery-caption">Left to right: LG 10.1″ LCD panel · acrylic enclosure CAD · autostart shell scripts on RPi OS</div>
+          </div>
+
+          <!-- Technical Drawings -->
+          <div>
+            <div class="body-section-label">Technical Documentation</div>
+            <div style="display:flex;gap:8px;flex-wrap:wrap">
+              <a href="images/WINDOW_10_FINAL.pdf" target="_blank" class="contact-link" style="font-size:11px;padding:10px 16px">
+                <span style="color:var(--accent)">↗</span> Window 10 — Screen Assembly Drawings
+              </a>
+              <a href="images/WINDOW_11_FINAL.pdf" target="_blank" class="contact-link" style="font-size:11px;padding:10px 16px">
+                <span style="color:var(--accent)">↗</span> Window 11 — Fan/Sail Assembly Drawings
+              </a>
+            </div>
+          </div>
+
           <!-- Deployment -->
           <div class="deployment-strip">
             <span class="ds-label">Installed</span>
@@ -1215,11 +1379,30 @@ Multi_Channel_Relay relay;
   <span class="ft-right">SW & CAD Design Engineer · Derby, UK</span>
 </footer>
 
+<!-- Lightbox -->
+<div class="lightbox" id="lightbox" onclick="closeLightbox()">
+  <span class="lightbox-close">ESC / tap to close</span>
+  <img id="lightbox-img" src="" alt="">
+</div>
+
 <script>
   function toggleCard(id) {
     const card = document.getElementById(id);
     card.classList.toggle('open');
   }
+
+  function openLightbox(src) {
+    document.getElementById('lightbox-img').src = src;
+    document.getElementById('lightbox').classList.add('active');
+  }
+
+  function closeLightbox() {
+    document.getElementById('lightbox').classList.remove('active');
+  }
+
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') closeLightbox();
+  });
 
   // Fade in on scroll
   const observer = new IntersectionObserver((entries) => {
