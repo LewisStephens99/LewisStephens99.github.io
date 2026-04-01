@@ -584,6 +584,42 @@
     grid-column: 1 / -1;
   }
 
+  .gallery-split {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2px;
+    margin-bottom: 2px;
+  }
+
+  .gallery-split-item {
+    overflow: hidden;
+    border: 1px solid var(--line);
+  }
+
+  .gallery-split-item img {
+    width: 100%;
+    height: 320px;
+    object-fit: cover;
+    display: block;
+    cursor: pointer;
+    transition: opacity 0.2s, transform 0.3s;
+  }
+
+  .gallery-split-item:hover img {
+    opacity: 0.9;
+    transform: scale(1.02);
+  }
+
+  .gallery-split-label {
+    padding: 10px 14px;
+    font-family: var(--mono);
+    font-size: 10px;
+    color: var(--text-muted);
+    letter-spacing: 0.08em;
+    border-top: 1px solid var(--line);
+    background: var(--bg3);
+  }
+
   .gallery-hero {
     display: block;
     max-height: 500px;
@@ -1064,8 +1100,17 @@ Multi_Channel_Relay relay;
           <!-- Final Installation Gallery -->
           <div class="img-gallery">
             <div class="body-section-label">Final Installation — Selfridges Oxford Street</div>
-            <img class="gallery-hero" src="images/si-installed.jpg" alt="Stone Island Marina — both windows installed at Selfridges Oxford Street" onclick="openLightbox(this.src)">
-            <div class="gallery-caption">Window 10 (screens) and Window 11 (fan/sail) — Selfridges Oxford Street, London · March 2025</div>
+            <div class="gallery-split">
+              <div class="gallery-split-item">
+                <img src="images/si-installed.jpg" alt="Window 10 — Screen installation" onclick="openLightbox(this.src)" style="object-position: center top;">
+                <div class="gallery-split-label">Window 10 — CGI Screen Array</div>
+              </div>
+              <div class="gallery-split-item">
+                <img src="images/si-installed.jpg" alt="Window 11 — Fan/sail installation" onclick="openLightbox(this.src)" style="object-position: center bottom;">
+                <div class="gallery-split-label">Window 11 — Fan / Sail System</div>
+              </div>
+            </div>
+            <div class="gallery-caption">Both windows installed · Selfridges Oxford Street, London · March 2025</div>
           </div>
 
           <!-- Fabrication Process -->
