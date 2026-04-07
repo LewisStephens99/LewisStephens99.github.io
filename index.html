@@ -145,7 +145,11 @@
   }
 
   .hero-content {
-    max-width: 900px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 4px;
   }
 
   .hero-label {
@@ -169,13 +173,15 @@
   }
 
   h1 {
+    text-align: center;
     font-family: var(--display);
     font-size: clamp(32px, 9vw, 120px);
-    font-weight: 800;
+    font-weight: 700;
     line-height: 0.92;
     letter-spacing: -0.03em;
     color: var(--text);
     margin-bottom: 32px;
+    margin-top: 100px;
   }
 
   h1 em {
@@ -184,11 +190,12 @@
   }
 
   .hero-desc {
+    text-align: center;
     font-family: var(--sans);
     font-size: 17px;
     font-weight: 300;
     color: var(--text-muted);
-    max-width: 520px;
+    max-width: 750px;
     line-height: 1.7;
     margin-bottom: 48px;
   }
@@ -944,17 +951,18 @@
 
 <!-- NAV -->
 <nav>
-  <span class="nav-mark">Lewis Stephens</span>
+  <span class="nav-mark"></span>
   <ul class="nav-links">
     <li><a href="#projects">Projects</a></li>
     <li><a href="#about">About</a></li>
     <li><a href="#contact">Contact</a></li>
   </ul>
-  <span class="nav-tag">CAD Design Engineer</span>
+  <span class="nav-tag"></span>
 </nav>
 
   <div class="hero-content">
     <div class="hero-label">Engineering Portfolio</div>
+    <h1>Lewis Stephens Portfolio</h1>
     <h1>Software<br>&amp; <em>CAD</em><br>Design</h1>
     <p class="hero-desc">
       Multi-discipline engineer combining software systems, CAD design, and hands-on fabrication.
@@ -1020,7 +1028,7 @@
             <ul class="tech-list">
               <li>Designed 40×40mm powder-coated aluminium L-angle framework with CNC-machined hole pattern at 50mm spacing</li>
               <li>Designed custom fan mounting brackets and structural corner brackets — fully dimensioned for in-house manufacture</li>
-              <li>Specified M8 flanged fastener positions for tool-free on-site assembly</li>
+              <li>Specified M8 flanged fastener positions for on-site assembly</li>
               <li>FR clear coat specified on all plywood elements — public retail fire compliance</li>
               <li>6× 240V industrial fans controlled via Arduino 8-channel relay — relay selected to isolate signal voltage from mains load and programmable on Arduino IDE Software</li>
               <li>Raspberry Pi media units with staggered startup sequences via grep boot commands — synchronised CGI playback across all screens</li>
@@ -1310,7 +1318,7 @@ Multi_Channel_Relay relay;
           <div>
             <div class="body-section-label">Overview</div>
             <p class="body-text">
-              Founded and independently operated an engineering product business, taking a <strong>full hardware range of 10 SKUs from concept through to manufactured output</strong> — managing design, prototyping, manufacturing, quality control, and customer delivery as sole engineer and director.
+              Founded and independently operated an simracing hardware product business, taking a <strong>full hardware range of 10 SKUs from concept through to manufactured output</strong> — managing design, prototyping, manufacturing, quality control, and customer delivery as sole engineer and director.
             </p>
             <p class="body-text">
               Ran a concurrent venture producing <strong>aftermarket lighting components for Sherco and Beta motorcycles</strong> — involving 3D scanning of original components, surface modelling, and hands-on electronics wiring.
@@ -1371,13 +1379,7 @@ Multi_Channel_Relay relay;
     <div class="about-block fade-in">
       <div class="about-block-label">Certifications</div>
       <div class="about-block-value">ALPHACAM Certified</div>
-      <div class="about-block-sub">Standard Geometry · Standard Machining<br><br>Siemens NX Engineering Essentials — Coursera / Siemens (In Progress, 2026)</div>
-    </div>
-
-    <div class="about-block fade-in">
-      <div class="about-block-label">Direction</div>
-      <div class="about-block-value">Digital Engineering</div>
-      <div class="about-block-sub">Targeting aerospace and nuclear engineering — specifically the intersection of software systems and physical design. Active interest in MBSE, Digital Twin, and CAD/PLM environments.</div>
+      <div class="about-block-sub">Standard Geometry · Standard Machining<br></div>
     </div>
 
     <div class="skills-wrap fade-in">
