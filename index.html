@@ -50,6 +50,90 @@
 
   <div class="projects">
 
+    <!-- NITRO ENGINE -->
+    <div class="project-card fade-in" id="card-nitro">
+      <div class="project-header" onclick="toggleCard('card-nitro')">
+        <div>
+          <div class="project-client">Personal Project · Reverse Engineering Exercise</div>
+          <div class="project-name">Nitro Engine — CAD Model (In Progress)</div>
+          <div class="project-scope">Reverse Engineering · Parametric Modelling · Assembly Design</div>
+        </div>
+        <div class="project-meta">
+          <div class="project-meta-item"><strong>Status</strong><br>In Progress</div>
+          <div class="project-meta-item" style="margin-top:8px"><strong>Tools</strong><br>Fusion 360 · CATIA</div>
+          <div class="project-toggle">
+            <span class="toggle-icon">+</span>
+            <span>View project</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="project-body">
+        <div class="project-body-inner">
+
+          <!-- Overview -->
+          <div>
+            <div class="body-section-label">Overview</div>
+            <p class="body-text">
+              Reverse-engineered a <strong>single-cylinder nitro RC engine</strong> from physical parts into parametric CAD assemblies using Fusion 360 and CATIA. Modelled the piston, finned cylinder liner, cylinder head, crankcase, and carburetor intake.
+            </p>
+            <p class="body-text">
+              Currently completing crankcase internals before producing <strong>section views and dimensioned drawings with GD&T callouts</strong>.
+            </p>
+          </div>
+
+          <!-- Engineering Approach -->
+          <div>
+            <div class="body-section-label">Engineering Approach</div>
+            <ul class="tech-list">
+              <li>Disassembled physical engine and captured dimensions from each component for parametric reconstruction</li>
+              <li>Modelled piston, finned cylinder liner, cylinder head, crankcase and carburetor intake as individual parametric bodies</li>
+              <li>Assembled components with mating constraints to validate clearances and concentricity</li>
+              <li>Cross-tooled between Fusion 360 and CATIA V5 to build fluency in both parametric environments</li>
+              <li>Crankcase internals in progress — section views and fully dimensioned drawings with GD&T callouts to follow</li>
+            </ul>
+          </div>
+
+          <!-- Component Detail -->
+          <div>
+            <div class="body-section-label">Components — Modelled to Date</div>
+            <div class="process-strip" style="grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));">
+              <div class="process-item">
+                <img src="images/nitro_engine_assembly_front.png" alt="Nitro engine assembly — front view" onclick="openLightbox(this.src)">
+                <div class="process-item-label">Assembly — front view</div>
+              </div>
+              <div class="process-item">
+                <img src="images/nitro_engine_assembly_rear.png" alt="Nitro engine assembly — rear view" onclick="openLightbox(this.src)">
+                <div class="process-item-label">Assembly — rear view</div>
+              </div>
+              <div class="process-item">
+                <img src="images/nitro_engine_piston.png" alt="Nitro engine piston — CAD model" onclick="openLightbox(this.src)">
+                <div class="process-item-label">Piston</div>
+              </div>
+              <div class="process-item">
+                <img src="images/nitro_engine_cylinder_liner.png" alt="Nitro engine finned cylinder liner — CAD model" onclick="openLightbox(this.src)">
+                <div class="process-item-label">Finned cylinder liner</div>
+              </div>
+              <div class="process-item">
+                <img src="images/nitro_engine_cylinder_head.png" alt="Nitro engine cylinder head — CAD model" onclick="openLightbox(this.src)">
+                <div class="process-item-label">Cylinder head</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Deliverables -->
+          <div class="deliverables">
+            <span class="deliverable-tag highlight">Fusion 360</span>
+            <span class="deliverable-tag highlight">CATIA</span>
+            <span class="deliverable-tag highlight">Reverse Engineering</span>
+            <span class="deliverable-tag">Parametric Modelling</span>
+            <span class="deliverable-tag">Assembly Design</span>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
     <!-- STONE ISLAND -->
     <div class="project-card fade-in" id="card-si">
       <div class="project-header" onclick="toggleCard('card-si')">
@@ -403,82 +487,6 @@ Multi_Channel_Relay relay;
             <span class="deliverable-tag">3D Scanning & Surface Modelling</span>
             <span class="deliverable-tag">Electronics Integration</span>
             <span class="deliverable-tag">Technical Documentation</span>
-          </div>
-
-        </div>
-      </div>
-    </div>
-
-    <!-- NITRO ENGINE -->
-    <div class="project-card fade-in" id="card-nitro">
-      <div class="project-header" onclick="toggleCard('card-nitro')">
-        <div>
-          <div class="project-client">Personal Project · Reverse Engineering Exercise</div>
-          <div class="project-name">Nitro Engine — CAD Model (In Progress)</div>
-          <div class="project-scope">Reverse Engineering · Parametric Modelling · Assembly Design</div>
-        </div>
-        <div class="project-meta">
-          <div class="project-meta-item"><strong>Status</strong><br>In Progress</div>
-          <div class="project-meta-item" style="margin-top:8px"><strong>Tools</strong><br>Fusion 360 · CATIA</div>
-          <div class="project-toggle">
-            <span class="toggle-icon">+</span>
-            <span>View project</span>
-          </div>
-        </div>
-      </div>
-
-      <div class="project-body">
-        <div class="project-body-inner">
-
-          <!-- Overview -->
-          <div>
-            <div class="body-section-label">Overview</div>
-            <p class="body-text">
-              Reverse-engineered a <strong>single-cylinder nitro RC engine</strong> from physical parts into parametric CAD assemblies using Fusion 360 and CATIA. Modelled the piston, finned cylinder liner, cylinder head, crankcase, and carburetor intake.
-            </p>
-            <p class="body-text">
-              Currently completing crankcase internals before producing <strong>section views and dimensioned drawings with GD&T callouts</strong>.
-            </p>
-          </div>
-
-          <!-- Engineering Approach -->
-          <div>
-            <div class="body-section-label">Engineering Approach</div>
-            <ul class="tech-list">
-              <li>Disassembled physical engine and captured dimensions from each component for parametric reconstruction</li>
-              <li>Modelled piston, finned cylinder liner, cylinder head, crankcase and carburetor intake as individual parametric bodies</li>
-              <li>Assembled components with mating constraints to validate clearances and concentricity</li>
-              <li>Cross-tooled between Fusion 360 and CATIA V5 to build fluency in both parametric environments</li>
-              <li>Crankcase internals in progress — section views and fully dimensioned drawings with GD&T callouts to follow</li>
-            </ul>
-          </div>
-
-          <!-- Component Detail -->
-          <div>
-            <div class="body-section-label">Components — Modelled to Date</div>
-            <div class="process-strip">
-              <div class="process-item">
-                <img src="images/nitro_engine_piston.png" alt="Nitro engine piston — CAD model" onclick="openLightbox(this.src)">
-                <div class="process-item-label">Piston</div>
-              </div>
-              <div class="process-item">
-                <img src="images/nitro_engine_cylinder_liner.png" alt="Nitro engine finned cylinder liner — CAD model" onclick="openLightbox(this.src)">
-                <div class="process-item-label">Finned cylinder liner</div>
-              </div>
-              <div class="process-item">
-                <img src="images/nitro_engine_cylinder_head.png" alt="Nitro engine cylinder head — CAD model" onclick="openLightbox(this.src)">
-                <div class="process-item-label">Cylinder head</div>
-              </div>
-            </div>
-          </div>
-
-          <!-- Deliverables -->
-          <div class="deliverables">
-            <span class="deliverable-tag highlight">Fusion 360</span>
-            <span class="deliverable-tag highlight">CATIA</span>
-            <span class="deliverable-tag highlight">Reverse Engineering</span>
-            <span class="deliverable-tag">Parametric Modelling</span>
-            <span class="deliverable-tag">Assembly Design</span>
           </div>
 
         </div>
