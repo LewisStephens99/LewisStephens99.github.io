@@ -3,7 +3,10 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Lewis Stephens — Portfolio</title>
+<title>Lewis Stephens — Cross-Discipline Engineer</title>
+<meta name="description" content="Engineer with five years of CAD and design experience, including cross-discipline electromechanical projects.">
+<meta property="og:title" content="Lewis Stephens — Cross-Discipline Engineer">
+<meta property="og:description" content="Engineer with five years of CAD and design experience, including cross-discipline electromechanical projects.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=DM+Mono:ital,wght@0,300;0,400;0,500;1,300&family=Syne:wght@400;500;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;1,300&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="styles.css?v=5">
@@ -25,15 +28,18 @@
   <div class="hero-content">
     <div class="hero-label">Engineering Portfolio</div>
     <h1>Lewis Stephens</h1>
-    <h2 class="hero-subtitle"><em>CAD</em> Design Engineer</h2>
+    <h2 class="hero-subtitle"><em>Cross-Discipline</em> Engineer</h2>
     <p class="hero-desc">
-      Mechanical CAD designer with five years of industry experience taking tolerance-critical, multi-component assemblies from concept through DFM/DFA and CNC manufacture to on-site deployment.
+      Engineer with five years of CAD and design experience, including cross-discipline electromechanical projects.
     </p>
     <div class="hero-pills">
-      <span class="pill pill-accent">Fusion 360</span>
-      <span class="pill">CNC Programming</span>
-      <span class="pill">DFM / DFMA</span>
-      <span class="pill">Tolerance Engineering</span>
+      <span class="pill pill-accent">Cross-Discipline Engineering</span>
+      <span class="pill">Mechanical Design</span>
+      <span class="pill">CNC Machining</span>
+      <span class="pill">Production Drawings</span>
+      <span class="pill">Python</span>
+      <span class="pill">Arduino</span>
+      <span class="pill">Fusion 360</span>
     </div>
   </div>
 
@@ -49,91 +55,6 @@
   </div>
 
   <div class="projects">
-
-    <!-- NITRO ENGINE -->
-    <div class="project-card fade-in" id="card-nitro">
-      <div class="project-header" onclick="toggleCard('card-nitro')">
-        <div>
-          <div class="project-client">Personal Project · Reverse Engineering Exercise</div>
-          <div class="project-name">Nitro Engine — CAD Model (In Progress)</div>
-          <div class="project-scope">Reverse Engineering · Assembly Design · CAE Simulation (planned)</div>
-        </div>
-        <div class="project-meta">
-          <div class="project-meta-item"><strong>Status</strong><br>In Progress</div>
-          <div class="project-meta-item" style="margin-top:8px"><strong>Tools</strong><br>Fusion 360 · CATIA</div>
-          <div class="project-toggle">
-            <span class="toggle-icon">+</span>
-            <span>View project</span>
-          </div>
-        </div>
-      </div>
-
-      <div class="project-body">
-        <div class="project-body-inner">
-
-          <!-- Overview -->
-          <div>
-            <div class="body-section-label">Overview</div>
-            <p class="body-text">
-              Reverse-engineered a <strong>single-cylinder nitro RC engine</strong> from physical parts into a complete CAD assembly using Fusion 360 and CATIA. Modelled the piston, finned cylinder liner, cylinder head, crankcase, and carburetor intake.
-            </p>
-            <p class="body-text">
-              Currently completing crankcase internals before producing <strong>section views and dimensioned drawings with GD&T callouts</strong>. Next phase: <strong>CAE simulation</strong> on the assembly — thermal analysis on the finned liner and structural FEA on the piston and connecting rod.
-            </p>
-          </div>
-
-          <!-- Engineering Approach -->
-          <div>
-            <div class="body-section-label">Engineering Approach</div>
-            <ul class="tech-list">
-              <li>Disassembled physical engine and captured dimensions from each component using callipers</li>
-              <li>Reconstructed the piston, finned cylinder liner, cylinder head, crankcase and carburetor intake as individual CAD bodies</li>
-              <li>Assembled components with mating constraints to validate clearances and concentricity against the physical engine</li>
-              <li>Cross-tooled between Fusion 360 and CATIA V5 to build fluency in both CAD environments</li>
-              <li>Crankcase internals in progress — section views and fully dimensioned drawings with GD&T callouts to follow</li>
-              <li>Planned next phase — CAE simulation on the assembly: thermal analysis on the finned liner, structural FEA on piston and connecting rod under combustion loading</li>
-            </ul>
-          </div>
-
-          <!-- Component Detail -->
-          <div>
-            <div class="body-section-label">Components — Modelled to Date</div>
-            <div class="process-strip" style="grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));">
-              <div class="process-item">
-                <img src="images/nitro_engine_assembly_front.png" alt="Nitro engine assembly — front view" onclick="openLightbox(this.src)">
-                <div class="process-item-label">Assembly — front view</div>
-              </div>
-              <div class="process-item">
-                <img src="images/nitro_engine_assembly_rear.png" alt="Nitro engine assembly — rear view" onclick="openLightbox(this.src)">
-                <div class="process-item-label">Assembly — rear view</div>
-              </div>
-              <div class="process-item">
-                <img src="images/nitro_engine_piston.png" alt="Nitro engine piston — CAD model" onclick="openLightbox(this.src)">
-                <div class="process-item-label">Piston</div>
-              </div>
-              <div class="process-item">
-                <img src="images/nitro_engine_cylinder_liner.png" alt="Nitro engine finned cylinder liner — CAD model" onclick="openLightbox(this.src)">
-                <div class="process-item-label">Finned cylinder liner</div>
-              </div>
-              <div class="process-item">
-                <img src="images/nitro_engine_cylinder_head.png" alt="Nitro engine cylinder head — CAD model" onclick="openLightbox(this.src)">
-                <div class="process-item-label">Cylinder head</div>
-              </div>
-            </div>
-          </div>
-
-          <!-- Deliverables -->
-          <div class="deliverables">
-            <span class="deliverable-tag highlight">Fusion 360</span>
-            <span class="deliverable-tag highlight">CATIA</span>
-            <span class="deliverable-tag highlight">Reverse Engineering</span>
-            <span class="deliverable-tag">Assembly Design</span>
-            <span class="deliverable-tag">CAE Simulation (planned)</span>
-          </div>
-
-        </div>
-      </div>
-    </div>
 
     <!-- STONE ISLAND -->
     <div class="project-card fade-in" id="card-si">
@@ -306,12 +227,12 @@ Multi_Channel_Relay relay;
 
           <!-- Deliverables -->
           <div class="deliverables">
-            <span class="deliverable-tag highlight">Structural CAD</span>
+            <span class="deliverable-tag highlight">Framework Design</span>
             <span class="deliverable-tag highlight">Custom Component Drawings</span>
-            <span class="deliverable-tag highlight">Arduino Firmware</span>
-            <span class="deliverable-tag highlight">RPi Deployment</span>
-            <span class="deliverable-tag">Technical Documentation</span>
-            <span class="deliverable-tag">On-site Commissioning</span>
+            <span class="deliverable-tag highlight">Embedded Control</span>
+            <span class="deliverable-tag highlight">Pi Setup</span>
+            <span class="deliverable-tag">Cross-Discipline Integration</span>
+            <span class="deliverable-tag">On-site Electronics Install</span>
           </div>
 
         </div>
@@ -426,12 +347,12 @@ Multi_Channel_Relay relay;
 
           <!-- Deliverables -->
           <div class="deliverables">
+            <span class="deliverable-tag highlight">Multi-Site European Deployment</span>
             <span class="deliverable-tag highlight">13-Part Component Family</span>
             <span class="deliverable-tag highlight">Manufacturing Drawings</span>
-            <span class="deliverable-tag highlight">Tolerance Documentation</span>
             <span class="deliverable-tag highlight">LED System Integration</span>
-            <span class="deliverable-tag">European Assembly Guide</span>
-            <span class="deliverable-tag">FDM Prototype Validation</span>
+            <span class="deliverable-tag">Iterative FDM Prototyping</span>
+            <span class="deliverable-tag">Supplier-Independent Installation</span>
             <span class="deliverable-tag">Sole Designer</span>
           </div>
 
@@ -483,11 +404,12 @@ Multi_Channel_Relay relay;
           </div>
 
           <div class="deliverables">
-            <span class="deliverable-tag highlight">10 SKUs to Market</span>
-            <span class="deliverable-tag highlight">Full Product Lifecycle</span>
-            <span class="deliverable-tag">3D Scanning & Surface Modelling</span>
-            <span class="deliverable-tag">Electronics Integration</span>
-            <span class="deliverable-tag">Technical Documentation</span>
+            <span class="deliverable-tag highlight">Full Product Lifecycle Ownership</span>
+            <span class="deliverable-tag highlight">CAD Design</span>
+            <span class="deliverable-tag highlight">Supplier Qualification & Management</span>
+            <span class="deliverable-tag">10 SKUs Shipped</span>
+            <span class="deliverable-tag">Customer-Facing Technical Support</span>
+            <span class="deliverable-tag">Hands-on Electronics Wiring</span>
           </div>
 
         </div>
@@ -510,13 +432,13 @@ Multi_Channel_Relay relay;
     <div class="about-block fade-in">
       <div class="about-block-label">Education</div>
       <div class="about-block-value">BSc (Hons) Software Engineering</div>
-      <div class="about-block-sub">Nottingham Trent University · 2020 · 2:1<br>Engineering foundation in algorithms, systems design and computational analysis. Academically qualified for Incorporated Engineer (IEng) registration, confirmed in writing by the Institution of Mechanical Engineers (IMechE).</div>
+      <div class="about-block-sub">Nottingham Trent University · 2020 · 2:1<br>Engineering foundation in algorithms, systems design, and computational analysis. Modules: AI, Mobile Platform Applications, Advanced Analysis & Design, Advanced Software Engineering.</div>
     </div>
 
     <div class="about-block fade-in">
       <div class="about-block-label">Current Role</div>
       <div class="about-block-value">CAD Designer</div>
-      <div class="about-block-sub">Formd Creative Ltd · Midlands<br>End-to-end CAD ownership of multi-component, tolerance-critical aluminium assemblies for CNC manufacture and on-site deployment. Targeting CAD Design Engineer and Mechanical Design Engineer roles in rail, aerospace, nuclear and precision manufacturing.</div>
+      <div class="about-block-sub">Formd Creative Ltd · Midlands<br>Five years of CAD and design experience, including cross-discipline electromechanical projects. Work has spanned an electromechanical retail installation, multi-site European hardware deployments, and a four-year hardware product venture.</div>
     </div>
 
     <div class="about-block fade-in">
@@ -529,19 +451,22 @@ Multi_Channel_Relay relay;
       <div class="about-block-label">Skills & Software</div>
       <div class="skills-grid">
         <div class="skill-item">Autodesk Fusion 360</div>
-        <div class="skill-item">Siemens NX</div>
-        <div class="skill-item">Catia V5</div>
+        <div class="skill-item">Siemens NX (Basic Modelling)</div>
+        <div class="skill-item">Catia V5 (Basic Modelling)</div>
         <div class="skill-item">ALPHACAM</div>
-        <div class="skill-item">Arduino / Embedded C</div>
+        <div class="skill-item">Arduino (C++)</div>
         <div class="skill-item">CNC Programming</div>
         <div class="skill-item">3D Printing / FDM</div>
-        <div class="skill-item">Dimensional Tolerancing</div>
-        <div class="skill-item">DFM / DFMA</div>
-        <div class="skill-item">Tolerance Stack-up</div>
-        <div class="skill-item">Configuration Control</div>
+        <div class="skill-item">Revision Control</div>
         <div class="skill-item">Technical Documentation</div>
-        <div class="skill-item">Raspberry Pi</div>
-        <div class="skill-item">Surface Modelling</div>
+        <div class="skill-item">Surface Modelling (Basic)</div>
+        <div class="skill-item">Python (OOP)</div>
+        <div class="skill-item">Git</div>
+        <div class="skill-item">Linux command line</div>
+        <div class="skill-item">SQL</div>
+        <div class="skill-item">Bash scripting</div>
+        <div class="skill-item">HTML / CSS / JavaScript</div>
+        <div class="skill-item">Cross-Discipline Integration</div>
       </div>
     </div>
 
@@ -560,7 +485,7 @@ Multi_Channel_Relay relay;
     <div class="contact-inner fade-in">
       <div class="contact-text">
         <h2>Get in touch</h2>
-        <p>Open to mechanical CAD engineering roles in rail, aerospace, nuclear and precision manufacturing. Based in Derby, UK.</p>
+        <p>Open to systems engineering, integration, and cross-discipline engineering roles. Based in Derby, UK.</p>
       </div>
       <div class="contact-links">
         <a href="mailto:lewis.stephens1999@gmail.com" class="contact-link">
@@ -579,7 +504,7 @@ Multi_Channel_Relay relay;
 <!-- FOOTER -->
 <footer>
   <span class="ft-left">Lewis Stephens · Engineering Portfolio · 2025</span>
-  <span class="ft-right">CAD Design Engineer · Derby, UK</span>
+  <span class="ft-right">Cross-Discipline Engineer · Derby, UK</span>
 </footer>
 
 <!-- Lightbox -->
