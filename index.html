@@ -3,10 +3,10 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Lewis Stephens — Cross-Discipline Engineer</title>
-<meta name="description" content="Engineer with five years of CAD and design experience, including cross-discipline electromechanical projects.">
-<meta property="og:title" content="Lewis Stephens — Cross-Discipline Engineer">
-<meta property="og:description" content="Engineer with five years of CAD and design experience, including cross-discipline electromechanical projects.">
+<title>Lewis Stephens — Mechanical Designer</title>
+<meta name="description" content="Mechanical designer with five years taking products and installations from concept to manufacture: mechanical design, production drawings, tolerancing and CNC.">
+<meta property="og:title" content="Lewis Stephens — Mechanical Designer">
+<meta property="og:description" content="Mechanical designer with five years taking products and installations from concept to manufacture: mechanical design, production drawings, tolerancing and CNC.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=DM+Mono:ital,wght@0,300;0,400;0,500;1,300&family=Syne:wght@400;500;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;1,300&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="styles.css?v=5">
@@ -28,17 +28,16 @@
   <div class="hero-content">
     <div class="hero-label">Engineering Portfolio</div>
     <h1>Lewis Stephens</h1>
-    <h2 class="hero-subtitle"><em>Cross-Discipline</em> Engineer</h2>
+    <h2 class="hero-subtitle"><em>Mechanical</em> Designer</h2>
     <p class="hero-desc">
-      Engineer with five years of CAD and design experience, including cross-discipline electromechanical projects.
+      Five years taking products and installations from concept to manufacture: mechanical design, production drawings, tolerancing and CNC.
     </p>
     <div class="hero-pills">
-      <span class="pill pill-accent">Cross-Discipline Engineering</span>
-      <span class="pill">Mechanical Design</span>
+      <span class="pill pill-accent">Mechanical Design</span>
+      <span class="pill">Design for Manufacture</span>
       <span class="pill">CNC Machining</span>
       <span class="pill">Production Drawings</span>
-      <span class="pill">Python</span>
-      <span class="pill">Arduino</span>
+      <span class="pill">Tolerancing</span>
       <span class="pill">Fusion 360</span>
     </div>
   </div>
@@ -96,72 +95,9 @@
               <li>Designed custom fan mounting brackets and structural corner brackets — fully dimensioned for in-house manufacture</li>
               <li>Specified M8 flanged fastener positions for on-site assembly</li>
               <li>FR clear coat specified on all plywood elements per public-installation fire-compliance requirements</li>
-              <li>6× 240V industrial fans controlled via Arduino 8-channel relay — relay selected to isolate signal voltage from mains load, programmed via the Arduino IDE</li>
+              <li>6× 240V industrial fans controlled via an 8-channel relay — relay selected to isolate signal voltage from the mains load</li>
               <li>Raspberry Pi media units with staggered startup sequences for synchronised CGI playback across all screens</li>
             </ul>
-          </div>
-
-          <!-- Arduino Code -->
-          <div class="code-wrap">
-            <div class="code-header">
-              <div style="display:flex;align-items:center;gap:12px">
-                <div class="code-dots">
-                  <div class="code-dot"></div>
-                  <div class="code-dot"></div>
-                  <div class="code-dot"></div>
-                </div>
-                <span class="code-filename">fan_relay_control.ino</span>
-              </div>
-              <span class="code-lang">Arduino C++</span>
-            </div>
-<pre><span class="pp">#include</span> <span class="str">&lt;multi_channel_relay.h&gt;</span>
-
-<span class="cm">/** Channel layout:
- *  Set 1: Fans 1, 2, 3
- *  Set 2: Fans 4, 5, 6
- *  Sequential activation creates sail wave effect
- */</span>
-
-<span class="kw">#define</span> DEBUG_PRINT Serial
-Multi_Channel_Relay relay;
-
-<span class="kw">void</span> <span class="fn">setup</span>() {
-  DEBUG_PRINT.<span class="fn">begin</span>(<span class="num">9600</span>);
-  <span class="kw">while</span> (!DEBUG_PRINT);
-  relay.<span class="fn">begin</span>(<span class="num">0x11</span>);
-  DEBUG_PRINT.<span class="fn">println</span>(<span class="str">"Relay control initialized."</span>);
-  <span class="fn">randomSeed</span>(<span class="fn">analogRead</span>(A0));
-}
-
-<span class="kw">void</span> <span class="fn">loop</span>() {
-  DEBUG_PRINT.<span class="fn">println</span>(<span class="str">"Starting both fan sets in parallel..."</span>);
-
-  <span class="cm">// Activate both sets simultaneously, one fan at a time</span>
-  <span class="kw">for</span> (<span class="kw">int</span> i = <span class="num">0</span>; i &lt; <span class="num">3</span>; i++) {
-    <span class="kw">int</span> fanSet1 = i + <span class="num">1</span>;   <span class="cm">// Fans 1, 2, 3</span>
-    <span class="kw">int</span> fanSet2 = i + <span class="num">4</span>;   <span class="cm">// Fans 4, 5, 6</span>
-
-    relay.<span class="fn">turn_on_channel</span>(fanSet1);
-    relay.<span class="fn">turn_on_channel</span>(fanSet2);
-
-    <span class="fn">delay</span>(<span class="num">5000</span>);  <span class="cm">// 5s between activation steps</span>
-  }
-
-  <span class="fn">delay</span>(<span class="num">5000</span>);  <span class="cm">// Hold all fans on</span>
-
-  <span class="cm">// Sequential shutdown</span>
-  <span class="kw">for</span> (<span class="kw">int</span> i = <span class="num">0</span>; i &lt; <span class="num">3</span>; i++) {
-    <span class="kw">int</span> fanSet1 = i + <span class="num">1</span>;
-    <span class="kw">int</span> fanSet2 = i + <span class="num">4</span>;
-
-    relay.<span class="fn">turn_off_channel</span>(fanSet1);
-    relay.<span class="fn">turn_off_channel</span>(fanSet2);
-
-    <span class="fn">delay</span>(<span class="num">5000</span>);
-  }
-
-  <span class="fn">delay</span>(<span class="num">5000</span>);  <span class="cm">// Wait before cycle repeats</span>
-}</pre>
           </div>
 
           <!-- Final Installation Gallery -->
@@ -231,7 +167,6 @@ Multi_Channel_Relay relay;
             <span class="deliverable-tag highlight">Custom Component Drawings</span>
             <span class="deliverable-tag highlight">Embedded Control</span>
             <span class="deliverable-tag highlight">Pi Setup</span>
-            <span class="deliverable-tag">Cross-Discipline Integration</span>
             <span class="deliverable-tag">On-site Electronics Install</span>
           </div>
 
@@ -432,13 +367,13 @@ Multi_Channel_Relay relay;
     <div class="about-block fade-in">
       <div class="about-block-label">Education</div>
       <div class="about-block-value">BSc (Hons) Software Engineering</div>
-      <div class="about-block-sub">Nottingham Trent University · 2020 · 2:1<br>Engineering foundation in algorithms, systems design, and computational analysis. Modules: AI, Mobile Platform Applications, Advanced Analysis & Design, Advanced Software Engineering.</div>
+      <div class="about-block-sub">Nottingham Trent University · 2020 · 2:1<br>A computational and analytical foundation now applied to mechanical work — structured problem-solving, systems thinking, and the programming behind design automation and embedded control.</div>
     </div>
 
     <div class="about-block fade-in">
       <div class="about-block-label">Current Role</div>
       <div class="about-block-value">CAD Designer</div>
-      <div class="about-block-sub">Formd Creative Ltd · Midlands<br>Five years of CAD and design experience, including cross-discipline electromechanical projects. Work has spanned an electromechanical retail installation, multi-site European hardware deployments, and a four-year hardware product venture.</div>
+      <div class="about-block-sub">Formd Creative Ltd · Midlands<br>Mechanical designer with five years of CAD and manufacturing experience across an electromechanical retail installation, multi-site European hardware deployments, and a four-year hardware product venture.</div>
     </div>
 
     <div class="about-block fade-in">
@@ -448,25 +383,24 @@ Multi_Channel_Relay relay;
     </div>
 
     <div class="skills-wrap fade-in">
-      <div class="about-block-label">Skills & Software</div>
+      <div class="about-block-label">Design & Manufacture</div>
       <div class="skills-grid">
-        <div class="skill-item">Autodesk Fusion 360</div>
-        <div class="skill-item">Siemens NX (Basic Modelling)</div>
-        <div class="skill-item">Catia V5 (Basic Modelling)</div>
-        <div class="skill-item">ALPHACAM</div>
-        <div class="skill-item">Arduino (C++)</div>
-        <div class="skill-item">CNC Programming</div>
-        <div class="skill-item">3D Printing / FDM</div>
-        <div class="skill-item">Revision Control</div>
-        <div class="skill-item">Technical Documentation</div>
-        <div class="skill-item">Surface Modelling (Basic)</div>
-        <div class="skill-item">Python (OOP)</div>
+        <div class="skill-item">Fusion 360 (5 years daily)</div>
+        <div class="skill-item">Siemens NX (basic)</div>
+        <div class="skill-item">Catia V5 (basic)</div>
+        <div class="skill-item">ALPHACAM (Hexagon certified)</div>
+        <div class="skill-item">CNC programming</div>
+        <div class="skill-item">3D printing (FDM/SLA)</div>
+        <div class="skill-item">Surface modelling</div>
+        <div class="skill-item">Design for manufacture</div>
+        <div class="skill-item">Tolerancing</div>
+        <div class="skill-item">Technical documentation</div>
+      </div>
+      <div class="about-block-label">Software & Control</div>
+      <div class="skills-grid">
+        <div class="skill-item">Python (scripting & automation)</div>
+        <div class="skill-item">Embedded control (Arduino)</div>
         <div class="skill-item">Git</div>
-        <div class="skill-item">Linux command line</div>
-        <div class="skill-item">SQL</div>
-        <div class="skill-item">Bash scripting</div>
-        <div class="skill-item">HTML / CSS / JavaScript</div>
-        <div class="skill-item">Cross-Discipline Integration</div>
       </div>
     </div>
 
@@ -504,7 +438,7 @@ Multi_Channel_Relay relay;
 <!-- FOOTER -->
 <footer>
   <span class="ft-left">Lewis Stephens · Engineering Portfolio · 2025</span>
-  <span class="ft-right">Cross-Discipline Engineer · Derby, UK</span>
+  <span class="ft-right">Mechanical Designer · Derby, UK</span>
 </footer>
 
 <!-- Lightbox -->
