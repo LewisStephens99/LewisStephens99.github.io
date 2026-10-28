@@ -37,3 +37,6 @@
   }, { threshold: 0.1 });
 
   document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+  // Footer year
+  document.getElementById('year').textContent = new Date().getFullYear();
