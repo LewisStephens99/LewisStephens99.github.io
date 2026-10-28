@@ -332,23 +332,6 @@
     width: 100%;
   }
 
-  .project-header.has-thumb {
-    grid-template-columns: clamp(120px, 16vw, 220px) 1fr auto;
-  }
-
-  .project-thumb {
-    width: 100%;
-    height: auto;
-    aspect-ratio: 4 / 3;
-    object-fit: cover;
-    display: block;
-    border: 1px solid var(--line);
-    filter: grayscale(20%);
-    transition: filter 0.3s;
-  }
-
-  .project-card:hover .project-thumb { filter: grayscale(0%); }
-
   .project-client {
     font-family: var(--mono);
     font-size: 10px;
@@ -958,9 +941,7 @@
   /* ── RESPONSIVE ── */
   @media (max-width: 767px) {
     .scroll-hint { display: none; }
-    .project-header,
-    .project-header.has-thumb { grid-template-columns: 1fr; }
-    .project-thumb { aspect-ratio: 16 / 9; }
+    .project-header { grid-template-columns: 1fr; }
     .project-name { font-size: clamp(16px, 4.2vw, 22px); }
     .project-meta { text-align: left; }
   }
